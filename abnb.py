@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
 import math
-import pipreqs
 
 logo = Image.open(r'C:\Users\fearner\Desktop\abnb\Airbnb_Logo.png')
 abnblogo= st.image(logo)
