@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import math
 
-logo = Image.open(r'C:\Users\fearner\Desktop\abnb\Airbnb_Logo.png')
+logo = Image.open('https://github.com/rafaelfearne/airbnbinmalta/blob/main/Airbnb_Logo.png')
 abnblogo= st.image(logo)
 st.title('Airbnb Rental Property Price Calculator')
 subhead=st.markdown("<h2 style='text-align: center; color: black;'><br/>This is a pricing tool to estimate the fair price per night of an Airbnb listing in Malta based on actual data from May 2019.<br/> <br/> Created by Rafael Fearne with data from InsideAirbnb.<br/> </h2>", unsafe_allow_html=True)
