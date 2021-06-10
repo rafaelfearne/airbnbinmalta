@@ -4,7 +4,7 @@ import math
 
 logo = Image.open('Airbnb_Logo.png')
 abnblogo= st.image(logo)
-st.title('Airbnb Rental Property Price Calculator')
+st.markdown("<h1 style='text-align: center;'Airbnb Rental Property Price Calculator'</h1>", unsafe_allow_html=True)
 subhead=st.markdown("<h2 style='text-align: center;'><br/>This is a pricing tool to estimate the fair price per night of an Airbnb listing in Malta based on actual data from May 2019.<br/> <br/> Created by Rafael Fearne with data from InsideAirbnb.<br/> </h2>", unsafe_allow_html=True)
 link=st.markdown("&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The model and description of the data is available in the author's **[study](https://doi.org/10.1108/IJHMA-12-2020-0147)**", unsafe_allow_html=True)
 
