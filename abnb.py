@@ -1,29 +1,18 @@
 import streamlit as st
-import streamlit.components.v1 as components
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import time
-import requests
-import json
+from PIL import Image
 import math
+import pipreqs
 
+logo = Image.open(r'C:\Users\fearner\Desktop\abnb\Airbnb_Logo.png')
+abnblogo= st.image(logo)
 st.title('Airbnb Rental Property Price Calculator')
+subhead=st.markdown("<h2 style='text-align: center; color: black;'><br/>This is a pricing tool to estimate the fair price per night of an Airbnb listing in Malta based on actual data from May 2019.<br/> <br/> Created by Rafael Fearne with data from InsideAirbnb.<br/> </h2>", unsafe_allow_html=True)
+link=st.markdown("&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The model and description of the data is available in the author's **[study](https://doi.org/10.1108/IJHMA-12-2020-0147)**", unsafe_allow_html=True)
 
-def run_status():
-	latest_iteration = st.empty()
-	bar = st.progress(0)
-	for i in range(100):
-		latest_iteration.text(f'Percent Complete {i+1}')
-		bar.progress(i + 1)
-		time.sleep(0.1)
-		st.empty()
-        
-st.subheader('Pricing Model for Airbnb Properties in Malta using data from May 2019')
 
 superhost = st.selectbox("Is the owner a registered superhost?",options=['Yes' , 'No'])
 total_listings = st.number_input("How many listings does the owner have on Airbnb?")
-property_type = st.selectbox("Which of the following definses the property",options=['Apartment' , 'Bungalow/Farmhouse', 'House', 'Villa'])
+property_type = st.selectbox("Which of the following describes the property",options=['Apartment' , 'Bungalow/Farmhouse', 'House', 'Villa'])
 roomtype = st.selectbox("Is the listing for an entire house/apartment or for a room?",options=['Entire house/apartment' , 'Shared/Private room'])
 accomodates = st.number_input("How many people does the property sleep?")
 bathrooms = st.number_input("How many bathrooms does the property have?")
@@ -45,7 +34,7 @@ superhost = 0 if superhost == 'No' else 1
 
 if property_type== 'Apartment': property_type= 0
 elif property_type=='Villa': property_type= 2
-else: 1 
+elif property_type=='Bungalow/Farmhouse' or 'House': property_type=1 
 
 roomtype = 0 if roomtype == 'Shared/Private room' else 1
 seaview = 0 if seaview == 'No' else 1
@@ -60,17 +49,17 @@ guest_pp = 0 if guest_pp == 'No' else 1
 
 western , sharbour, northern, nharbour, southeastern, gozo = 0,0,0,0,0,0
 if region == 'Western':
-	western = 1
+    western = 1
 elif region == 'Southern Harbour':
-	sharbour= 1
+    sharbour= 1
 elif region == 'Northern':
-	northern= 1
+    northern= 1
 elif region == 'Northern Harbour':
-	nharbour= 1
+    nharbour= 1
 elif region == 'South Eastern':
-	southeastern= 1
+    southeastern= 1
 else:
-	gozo= 1
+    gozo= 1
 
 logresult=3.231+(0.0655*superhost)+(0.00237*total_listings)+(0.202*property_type)+(0.72*roomtype)+(0.0479*accomodates)+(-0.0132*bathrooms)+(0.133*bedrooms)+(0.0905*seaview)+(0.141*wifi)+(0.17*breakfast)+(-0.108*parking)+(0.399*pool)+(0.103*instantly_bookable)+(-0.0356*cancellation)+(-0.0708*smoking)+(0.213*guest_pp)+(-0.00753*reviews_py)+(0.00198*reviews_score)+(-0.466*gozo)+(-0.36*northern)+(-0.175*nharbour)+(-0.382*southeastern)+(-0.21*western)
 resultraw=math.exp(logresult)
