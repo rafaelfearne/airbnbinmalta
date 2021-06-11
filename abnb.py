@@ -89,3 +89,7 @@ def load_data():
     return df
 
 database_df = load_data()
+
+if generate:
+    save_results(dataset_df,superhost)
+    
