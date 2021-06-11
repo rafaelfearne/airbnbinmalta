@@ -83,7 +83,7 @@ database_df = load_data()
 # track which row of results_df to read
 with open("progress.txt", "r") as f:
         button_press = f.readline()  # starts as a string
-        button_press = 0 if button_press == "" else int(button_press)  # check if its an empty string, otherwise should be able to cast using int()
+        button_press = 0 if button_press == "0" else int(button_press)  # check if its an empty string, otherwise should be able to cast using int()
 
 if st.button("Save your information"):
     button_press += 1
