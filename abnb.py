@@ -64,36 +64,7 @@ elif region == 'South Eastern':
 else:
     gozo= 1
 
-    # save annotated results after every button click
-def save_results(results_df, superhost):
-    results_df.at[button_press, 'superhost'] = superhost
-    results_df.to_csv('dataset.csv', index=None)
-    return None
 
-# load spreadsheet with data to be annotated
-@st.cache
-def load_data():
-    # If this is your first run, create an empty csv file with
-    # columns kms_biked and location_visited
-    df = pd.read_csv('dataset.csv')
-    return df
-
-
-database_df = load_data()
-
-# track which row of results_df to read
-with open("progress.txt", "r") as f:
-        button_press = f.readline()  # starts as a string
-        button_press = 0 if button_press == "" else int(button_press)  # check if its an empty string, otherwise should be able to cast using int()
-
-if st.button("Save your information"):
-    button_press += 1
-    save_results(database_df, button_press, kms_biked, location_visited)
-
-# track which row of results_df to write to
-with open("progress.txt", "w") as f:
-        f.truncate()
-        f.write(f"{button_press}")
         
 logresult=3.231+(0.0655*superhost)+(0.00237*total_listings)+(0.202*property_type)+(0.72*roomtype)+(0.0479*accomodates)+(-0.0132*bathrooms)+(0.133*bedrooms)+(0.0905*seaview)+(0.141*wifi)+(0.17*breakfast)+(-0.108*parking)+(0.399*pool)+(0.103*instantly_bookable)+(-0.0356*cancellation)+(-0.0708*smoking)+(0.213*guest_pp)+(-0.00753*reviews_py)+(0.00198*reviews_score)+(-0.466*gozo)+(-0.36*northern)+(-0.175*nharbour)+(-0.382*southeastern)+(-0.21*western)
 resultraw=math.exp(logresult)
