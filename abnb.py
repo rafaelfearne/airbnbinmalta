@@ -74,10 +74,9 @@ def save_results(database_df, superhost):
 @st.cache
 def load_data():
     # If this is your first run, create an empty csv file with
-    # columns kms_biked and location_visited
+    # columns superhost
     df = pd.read_csv('dataset.csv')
     return df
-
 
 database_df = load_data()
 
@@ -88,7 +87,7 @@ with open("progress.txt", "r") as f:
 
 if st.button("Save your information"):
     button_press += 1
-    save_results(database_df, button_press, kms_biked, location_visited)
+    save_results(database_df, superhost)
 
 # track which row of results_df to write to
 with open("progress.txt", "w") as f:
