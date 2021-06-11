@@ -73,23 +73,4 @@ result= f"The price per night is approximately **€{resultraw:.2f}**."
 generate = st.button('Generate Result')
 if generate:
     st.markdown(result)
-    
-# save annotated results after every button click
-def save_results(database_df, superhost):
-    database_df.at['superhost'] = superhost
-    database_df.to_csv('dataset.csv', index=None)
-    return None
-
-# load spreadsheet with data to be annotated
-@st.cache
-def load_data():
-    # If this is your first run, create an empty csv file with
-    # columns superhost
-    df = pd.read_csv('dataset.csv')
-    return df
-
-database_df = load_data()
-
-if generate:
-    save_results(database_df,superhost)
-    
+ 
