@@ -91,5 +91,5 @@ def load_data():
 database_df = load_data()
 
 if generate:
-    save_results(dataset_df,superhost)
+    save_results(database_df,superhost)
     
