@@ -76,7 +76,7 @@ if generate:
     
 # save annotated results after every button click
 def save_results(database_df, superhost):
-    database_df.at[generate, 'superhost'] = superhost
+    database_df.at['superhost'] = superhost
     database_df.to_csv('dataset.csv', index=None)
     return None
 
@@ -91,5 +91,5 @@ def load_data():
 database_df = load_data()
 
 if generate:
-    save_results(database_df,superhost)
+    save_results(dataset_df,superhost)
     
