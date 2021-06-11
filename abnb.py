@@ -65,10 +65,9 @@ else:
     gozo= 1
 
     # save annotated results after every button click
-def save_results(results_df, button_press, kms_biked, location_visited):
-    results_df.at[button_press, 'kms_biked'] = kms_biked
-    results_df.at[button_press, 'location_visited'] = location_visited
-    results_df.to_csv('bike_to_work.csv', index=None)
+def save_results(results_df, superhost):
+    results_df.at[button_press, 'superhost'] = superhost
+    results_df.to_csv('dataset.csv', index=None)
     return None
 
 # load spreadsheet with data to be annotated
@@ -76,7 +75,7 @@ def save_results(results_df, button_press, kms_biked, location_visited):
 def load_data():
     # If this is your first run, create an empty csv file with
     # columns kms_biked and location_visited
-    df = pd.read_csv('bike_to_work.csv')
+    df = pd.read_csv('dataset.csv')
     return df
 
 
