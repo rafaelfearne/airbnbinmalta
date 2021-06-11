@@ -10,7 +10,7 @@ link=st.markdown("&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 
 superhost = st.selectbox("Is the owner a registered superhost?",options=['Yes' , 'No'])
-total_listings = st.number_input("How many listings does the owner have on Airbnb?")
+total_listings = st.number_input("How many listings does the owner have on Airbnb?", step=int)
 property_type = st.selectbox("Which of the following describes the property",options=['Apartment' , 'Bungalow/Farmhouse', 'House', 'Villa'])
 roomtype = st.selectbox("Is the listing for an entire house/apartment or for a room?",options=['Entire house/apartment' , 'Shared/Private room'])
 accomodates = st.number_input("How many people does the property sleep?")
@@ -33,7 +33,9 @@ superhost = 0 if superhost == 'No' else 1
 
 if property_type== 'Apartment': property_type= 0
 elif property_type=='Villa': property_type= 2
-elif property_type=='Bungalow/Farmhouse' or 'House': property_type=1 
+elif property_type=='Bungalow/Farmhouse': property_type=1.5
+elif property_type=='House': property_type= 1
+
 
 roomtype = 0 if roomtype == 'Shared/Private room' else 1
 seaview = 0 if seaview == 'No' else 1
