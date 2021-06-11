@@ -13,9 +13,9 @@ superhost = st.selectbox("Is the owner a registered superhost?",options=['Yes' ,
 total_listings = st.number_input("How many listings does the owner have on Airbnb?", step=1)
 property_type = st.selectbox("Which of the following describes the property",options=['Apartment' , 'Bungalow/Farmhouse', 'House', 'Villa'])
 roomtype = st.selectbox("Is the listing for an entire house/apartment or for a room?",options=['Entire house/apartment' , 'Shared/Private room'])
-accomodates = st.number_input("How many people does the property sleep?")
-bathrooms = st.number_input("How many bathrooms does the property have?")
-bedrooms = st.number_input("How many bedrooms does the property have?")
+accomodates = st.number_input("How many people does the property sleep?", step=1)
+bathrooms = st.number_input("How many bathrooms does the property have?", step=1)
+bedrooms = st.number_input("How many bedrooms does the property have?", step=1)
 seaview = st.selectbox("Does the property have a seaview?",options=['Yes' , 'No'])
 wifi = st.selectbox("Does the property have wifi?",options=['Yes' , 'No'])
 breakfast = st.selectbox("Does the property offer breakfast?",options=['Yes' , 'No'])
@@ -25,8 +25,8 @@ instantly_bookable = st.selectbox("Is the property instantly bookable?",options=
 cancellation = st.selectbox("Is free cancellation available?",options=['Yes' , 'No'])
 smoking = st.selectbox("Is smoking allowed?",options=['Yes' , 'No'])
 guest_pp = st.selectbox("Does the property require guests to have a profile picture to book?",options=['Yes' , 'No'])
-reviews_py = st.number_input("How many reviews does the property get per year? *If none yet, enter 14*")
-reviews_score = st.number_input("What is the average review score? *If none yet, enter 95*")
+reviews_py = st.number_input("How many reviews does the property get per year? *If none yet, enter 14*", step=1, value=14)
+reviews_score = st.number_input("What is the average review score? *If none yet, enter 95*", step=1, value=95)
 region = st.selectbox("In which region is the property situated?",options=['Western' , 'Southern Harbour', 'Northern', 'Northern Harbour', 'South Eastern','Gozo & Comino'])
 
 superhost = 0 if superhost == 'No' else 1
