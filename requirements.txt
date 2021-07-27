@@ -1,2 +1,2 @@
 mpmath==1.2.1
-streamlit==0.82.0
+streamlit==0.85.0
