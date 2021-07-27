@@ -75,7 +75,7 @@ if 'result' not in st.session_state:
 
 generate = st.button('Generate Result')
  
-st.write('Count = ', st.session_state.result)
+st.write('Previous Result = ', st.session_state.result)
 if generate:
     st.markdown(result)
  
