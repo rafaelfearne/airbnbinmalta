@@ -72,5 +72,5 @@ result= f"The price per night is approximately **€{resultraw:.2f}**."
 
 if 'test' not in st.session_state:
     st.session_state.test = resultraw
-    st.markdown('Previous Result = ', resultraw)
+    st.markdown(st.session_state.test)
 
