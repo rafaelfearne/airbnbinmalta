@@ -77,5 +77,5 @@ if 'test' not in st.session_state:
  
 st.write('Previous Result = ', st.session_state.test)
 if generate:
-    st.markdown(result)
+    st.markdown(test)
  
