@@ -71,6 +71,6 @@ resultraw=math.exp(logresult)
 result= f"The price per night is approximately **€{resultraw:.2f}**."
 
 if 'test' not in st.session_state:
-    st.session_state.test = resultraw
-    st.markdown('test')
+    st.session_state.test = result
+    st.markdown(st.session_state.tes)
 
