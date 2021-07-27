@@ -73,5 +73,6 @@ result= f"The price per night is approximately **€{resultraw:.2f}**."
 if 'test' not in st.session_state:
     st.session_state.test = resultraw
 
-st.markdown(f"<h1 style=text-align: center; 'The price per night is approximately **€{resultraw:.2f}**.' </h1>")
- 
+st.markdown("<h1 style= text-align: center; 'The price per night is approximately **€{resultraw:.2f}**.' </h1>",  unsafe_allow_html=True)
+st.markdown("<h1 style= text-align: center;'Airbnb Rental Property Price Calculator'</h1>", unsafe_allow_html=True)
+
