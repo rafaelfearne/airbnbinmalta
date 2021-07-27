@@ -76,6 +76,6 @@ if generate:
 
 if 'test' not in st.session_state:
     st.session_state.test = resultraw
- 
-st.write('Previous Result = ', st.session_state.test)
+
+st.write('Previous Result = €', resultraw)
  
