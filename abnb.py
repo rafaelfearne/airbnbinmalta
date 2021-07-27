@@ -70,7 +70,12 @@ logresult=3.231+(0.0655*superhost)+(0.00237*total_listings)+(0.202*property_type
 resultraw=math.exp(logresult)
 result= f"The price per night is approximately **€{resultraw:.2f}**."
 
+if 'result' not in st.session_state:
+    st.session_state.result = 0
+
 generate = st.button('Generate Result')
+ 
+st.write('Count = ', st.session_state.result)
 if generate:
     st.markdown(result)
  
