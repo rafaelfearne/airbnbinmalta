@@ -73,5 +73,5 @@ result= f"The price per night is approximately **€{resultraw:.2f}**."
 if 'test' not in st.session_state:
     st.session_state.test = result
     
-st.markdown("<h1> style= text-align: center; {result} </h1>", unsafe_allow_html=True)
+st.markdown(result, unsafe_allow_html=True)
 
