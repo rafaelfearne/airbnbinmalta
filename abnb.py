@@ -71,11 +71,11 @@ resultraw=math.exp(logresult)
 result= f"The price per night is approximately **€{resultraw:.2f}**."
 
 generate = st.button('Generate Result')
+if generate:
+    st.markdown(result)
 
 if 'test' not in st.session_state:
     st.session_state.test = resultraw
  
 st.write('Previous Result = ', st.session_state.test)
-if generate:
-    st.markdown('test')
  
