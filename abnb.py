@@ -71,7 +71,7 @@ resultraw=math.exp(logresult)
 result= f"The price per night is approximately **€{resultraw:.2f}**."
 
 if 'result' not in st.session_state:
-    st.session_state.result = 0
+    st.session_state.result = 'result'
 
 generate = st.button('Generate Result')
  
