@@ -70,12 +70,8 @@ logresult=3.231+(0.0655*superhost)+(0.00237*total_listings)+(0.202*property_type
 resultraw=math.exp(logresult)
 result= f"The price per night is approximately **€{resultraw:.2f}**."
 
-generate = st.button('Generate Result')
-if generate:
-    st.markdown(result)
-
 if 'test' not in st.session_state:
     st.session_state.test = resultraw
 
-st.write('Previous Result = €', resultraw)
+st.markdown(f"The price per night is approximately **€{resultraw:.2f}**.")
  
